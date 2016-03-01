@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Local settings
 
 - Run in Debug mode
 - Use console backend for emails
 - Add Django Debug Toolbar
 - Add django-extensions as app
-'''
+"""
 
 from .common import *  # noqa
 
@@ -58,5 +58,3 @@ INSTALLED_APPS += ('django_extensions', )
 # TESTING
 # ------------------------------------------------------------------------------
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-
-# Your local stuff: Below this line define 3rd party library settings

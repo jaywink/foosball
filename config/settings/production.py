@@ -43,8 +43,6 @@ SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['foosball.anders.fi'])
 # END SITE CONFIGURATION
 
-INSTALLED_APPS += ("gunicorn", )
-
 # EMAIL
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
