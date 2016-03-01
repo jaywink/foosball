@@ -60,6 +60,3 @@ foosball/media/
 
 # Hitch directory
 tests/.hitch
-
-# MailHog binary
-mailhog
