@@ -57,6 +57,3 @@ node_modules/
 
 # User-uploaded media
 foosball/media/
-
-# Hitch directory
-tests/.hitch
