@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-'''
+"""
 Production Configurations
-
-- Use djangosecure
-
-
-'''
+"""
 from __future__ import absolute_import, unicode_literals
 
 from django.utils import six
@@ -21,16 +17,11 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 # This ensures that Django will be able to detect a secure connection
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# django-secure
-# ------------------------------------------------------------------------------
-INSTALLED_APPS += ("djangosecure", )
-
 SECURITY_MIDDLEWARE = (
-    'djangosecure.middleware.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
 
-
-# Make sure djangosecure.middleware.SecurityMiddleware is listed first
+# Make sure SecurityMiddleware is listed first
 MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + MIDDLEWARE_CLASSES
 
 # set this to 60 seconds and then to 518400 when you can prove it works
