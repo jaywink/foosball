@@ -4,7 +4,6 @@ Production Configurations
 
 - Use djangosecure
 - Use Amazon's S3 for storing static files and uploaded media
-- Use mailgun to send emails
 
 
 '''
@@ -106,9 +105,6 @@ INSTALLED_APPS = ('collectfast', ) + INSTALLED_APPS
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
                          default='foosball <noreply@foosball.anders.fi>')
-EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
-MAILGUN_ACCESS_KEY = env('DJANGO_MAILGUN_API_KEY')
-MAILGUN_SERVER_NAME = env('DJANGO_MAILGUN_SERVER_NAME')
 EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default='[foosball] ')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
