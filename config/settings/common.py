@@ -10,12 +10,17 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 from __future__ import absolute_import, unicode_literals
 
+import os
+
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
 APPS_DIR = ROOT_DIR.path('foosball')
 
 env = environ.Env()
+# If the project root contains a .env file, read it
+if os.path.isfile(str(ROOT_DIR + '.env')):
+    environ.Env.read_env(str(ROOT_DIR + '.env'))
 
 # APP CONFIGURATION
 # ------------------------------------------------------------------------------
