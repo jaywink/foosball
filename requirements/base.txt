@@ -4,7 +4,7 @@
 # Verified bug on Python 3.5.1
 wheel==0.29.0
 
-django==1.9.2
+django==1.9.3
 
 # Configuration
 django-environ==0.4.0
