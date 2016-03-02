@@ -13,6 +13,7 @@ from __future__ import absolute_import, unicode_literals
 import os
 
 import environ
+from django_jinja.builtins import DEFAULT_EXTENSIONS
 
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
 APPS_DIR = ROOT_DIR.path('foosball')
@@ -40,6 +41,7 @@ DJANGO_APPS = (
     'django.contrib.admin',
 )
 THIRD_PARTY_APPS = (
+    'django_jinja',
     'crispy_forms',  # Form layouts
     'allauth',  # registration
     'allauth.account',  # registration
@@ -132,7 +134,33 @@ USE_TZ = True
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#templates
+
+_TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.template.context_processors.debug',
+    'django.template.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.template.context_processors.i18n',
+    'django.template.context_processors.media',
+    'django.template.context_processors.static',
+    'django.template.context_processors.tz',
+    'django.contrib.messages.context_processors.messages',
+]
+
 TEMPLATES = [
+    {
+        'BACKEND': "django_jinja.backend.Jinja2",
+        'DIRS': [
+            str(APPS_DIR.path('templates')),
+        ],
+        'OPTIONS': {
+            'match_extension': '.jinja',
+            'context_processors': _TEMPLATE_CONTEXT_PROCESSORS,
+            'auto_reload': DEBUG,
+            'extensions': DEFAULT_EXTENSIONS + [
+                # Your extensions here...
+            ]
+        },
+    },
     {
         # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-TEMPLATES-BACKEND
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -150,17 +178,7 @@ TEMPLATES = [
                 'django.template.loaders.app_directories.Loader',
             ],
             # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-context-processors
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
-                'django.contrib.messages.context_processors.messages',
-                # Your stuff: custom template context processors go here
-            ],
+            'context_processors': _TEMPLATE_CONTEXT_PROCESSORS,
         },
     },
 ]

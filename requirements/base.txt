@@ -9,6 +9,9 @@ django==1.9.3
 # Configuration
 django-environ==0.4.0
 
+# Templating
+django-jinja==2.1.2
+
 # Forms
 django-braces==1.8.1
 django-crispy-forms==1.6.0
