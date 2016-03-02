@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
-
+    url(r'^api/', include("foosball.api.urls", namespace="api")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
