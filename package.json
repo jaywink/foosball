@@ -4,9 +4,12 @@
   "license": "MIT",
   "repository": "andersinno/foosball",
   "private": true,
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "unigulp": "andersinno/unigulp#086c3c4844ec4979ddf72a5db4d96fa28256c9cd"
   },
+  "devDependencies": {},
   "engines": {
     "node": ">=0.8.0"
   }

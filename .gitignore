@@ -32,6 +32,7 @@ pip-log.txt
 .tox
 nosetests.xml
 htmlcov
+.cache/
 
 # Translations
 *.mo
@@ -49,9 +50,6 @@ htmlcov
 # npm
 node_modules/
 
-# Compass
-.sass-cache
-
 # virtual environments
 .env
 
@@ -60,3 +58,6 @@ foosball/media/
 
 # Default SQLite database
 foosball.sqlite
+
+# Bower
+bower_components/
