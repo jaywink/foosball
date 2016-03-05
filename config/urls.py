@@ -19,8 +19,12 @@ urlpatterns = [
     url(r'^users/', include("foosball.users.urls", namespace="users")),
     url(r'^accounts/', include('allauth.urls')),
 
-    # Your stuff: custom urls includes go here
+    url(r'^select2/', include('django_select2.urls')),
+
+    # Real stuff goes here
     url(r'^api/', include("foosball.api.urls", namespace="api")),
+    url(r'^games/', include('foosball.games.urls', namespace="games")),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

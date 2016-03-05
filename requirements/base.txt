@@ -4,7 +4,7 @@
 # Verified bug on Python 3.5.1
 wheel==0.29.0
 
-django==1.9.3
+django==1.9.4
 
 # Configuration
 django-environ==0.4.0
@@ -16,6 +16,8 @@ django-jinja==2.1.2
 django-braces==1.8.1
 django-crispy-forms==1.6.0
 django-floppyforms==1.6.1
+django-superform==0.3.1
+Django-Select2==5.8.2
 
 # Models
 django-model-utils==2.4

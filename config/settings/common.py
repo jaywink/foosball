@@ -47,12 +47,14 @@ THIRD_PARTY_APPS = (
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     'rest_framework',  # REST API
+    'django_superform',
+    'django_select2',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
-    'foosball.users',  # custom users app
-    # Your stuff: custom apps go here
+    'foosball.users',
+    'foosball.games',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -150,6 +152,7 @@ _TEMPLATE_CONTEXT_PROCESSORS = [
 TEMPLATES = [
     {
         'BACKEND': "django_jinja.backend.Jinja2",
+        'APP_DIRS': True,
         'DIRS': [
             str(APPS_DIR.path('templates')),
         ],

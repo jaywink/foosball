@@ -1,0 +1,28 @@
+{% extends "games/games_base.jinja" %}
+{% import "games/macros.jinja" as macros with context %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md 12">
+            <h1>{{ _("Games") }}</h1>
+            <a class="btn btn-primary" href="{{ url("games:new") }}"><i class="fa fa-plus"></i> {{ _("Result input") }}</a></p>
+
+            <hr>
+
+            <ul>
+                {% for game in game_list %}
+                    <li><a href="{{ url("games:detail", pk=game.pk) }}">{{ game.played_at|date("j.n.Y G.i") }}</a>:
+                        {% for team in game.teams.all() %}
+                            {{ ' - ' if not loop.first else '' }}
+                            {{ team }}
+                        {% endfor %}
+                    </li>
+
+                {% else %}
+                    {{ _("No games have been played.") }}
+                {% endfor %}
+            </ul>
+            {{ macros.bootstrap_paginator(page_obj) }}
+        </div>
+    </div>
+{% endblock %}

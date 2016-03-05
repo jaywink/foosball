@@ -1,1 +1,19 @@
 {% extends "base.jinja" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <h1>{{ _("Office fußball results!") }}</h1>
+                <p>{{ _("Currently just for collecting data, but hey it's <a href=\"https://github.com/andersinno/foosball\">open source</a>, go wild!") }}</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="{{ url("games:new") }}"><i class="fa fa-plus"></i> {{ _("Result input") }}</a></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="text-center">
+                <img src="{{ static('images/logo.png') }}" alt="logo">
+            </div>
+        </div>
+    </div>
+{% endblock %}
