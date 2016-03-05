@@ -47,12 +47,12 @@
 
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated() %}
-                    <li class="{% block nav_profile %}{% endblock %}"><a href="{{ url('users:detail', username=request.user.username ) }}">{{ _("My Profile") }}</a>
+                    <li class="{% block nav_profile %}{% endblock %}"><a href="{{ url('users:detail', username=request.user.username ) }}"><i class="fa fa-user"></i> {{ request.user.username }}</a>
                     </li>
-                    <li><a href="{{ url('account_logout') }}">{{ _("Logout") }}</a></li>
+                    <li><a href="{{ url('account_logout') }}"><i class="fa fa-sign-out"></i></a></li>
                 {% else %}
-                    <li class="{% block nav_signup %}{% endblock %}"><a id="sign-up-link" href="{{ url('account_signup') }}">{{ _("Sign Up") }}</a></li>
-                    <li class="{% block nav_login %}{% endblock %}"><a id="log-in-link" href="{{ url('account_login') }}">{{ _("Log In") }}</a></li>
+                    <li class="{% block nav_signup %}{% endblock %}"><a id="sign-up-link" href="{{ url('account_signup') }}"><i class="fa fa-user-plus"></i></a></li>
+                    <li class="{% block nav_login %}{% endblock %}"><a id="log-in-link" href="{{ url('account_login') }}"><i class="fa fa-sign-in"></i></a></li>
                 {% endif %}
             </ul>
         </div><!--/.nav-collapse -->
@@ -61,16 +61,15 @@
 
 <div class="container">
 
-    {% if messages %}
+    {%- if messages %}
         {% for message in messages %}
             <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
         {% endfor %}
-    {% endif %}
+    {% endif -%}
 
     {% block content %}
         <p>Use this document as a way to quick start any new project.</p>
-    {% endblock content %}
-
+    {% endblock content -%}
 </div> <!-- /container -->
 
 {% block modal %}{% endblock modal %}
