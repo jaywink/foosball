@@ -236,6 +236,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
 ACCOUNT_ADAPTER = 'foosball.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'foosball.users.adapters.SocialAccountAdapter'
+ACCOUNT_LOGOUT_ON_GET = True
 
 # Custom user app defaults
 # Select the correct user model
