@@ -23,13 +23,24 @@ gulp.task("js:site", require("unigulp/js")({
 }));
 
 // FONTS
-gulp.task("fonts", function () {
+gulp.task("fonts:general", function () {
     return gulp.src([
         "bower_components/bootstrap/dist/fonts/*.*",
         "bower_components/font-awesome/fonts/*.*"
     ])
     .pipe(gulp.dest("foosball/static/fonts"));
 });
+
+gulp.task("fonts:lobster", function () {
+    return gulp.src("bower_components/fontkit-lobster/fonts/lobster/*.*")
+        .pipe(gulp.dest("foosball/static/fonts/lobster"));
+});
+
+gulp.task("css:lobster", function () {
+    return gulp.src("bower_components/fontkit-lobster/styles/lobster.css")
+        .pipe(gulp.dest("foosball/static/css"));
+});
+
 
 gulp.task("watch", ["default"], function () {
     gulp.watch("foosball/static_src/less/**/*.less", ["css"]);
