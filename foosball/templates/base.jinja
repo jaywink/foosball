@@ -36,23 +36,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Foosball</a>
+            <a class="navbar-brand" href="{{ url('home') }}">Foosball</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('about') }}">About</a>
+                <li class="{% block nav_about %}{% endblock %}">
+                    <a href="{{ url('about') }}">About</a>
                 </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated() %}
-                    <li><a href="{{ url('users:detail', username=request.user.username ) }}">{{ _("My Profile") }}</a>
+                    <li class="{% block nav_profile %}{% endblock %}"><a href="{{ url('users:detail', username=request.user.username ) }}">{{ _("My Profile") }}</a>
                     </li>
                     <li><a href="{{ url('account_logout') }}">{{ _("Logout") }}</a></li>
                 {% else %}
-                    <li><a id="sign-up-link" href="{{ url('account_signup') }}">{{ _("Sign Up") }}</a></li>
-                    <li><a id="log-in-link" href="{{ url('account_login') }}">{{ _("Log In") }}</a></li>
+                    <li class="{% block nav_signup %}{% endblock %}"><a id="sign-up-link" href="{{ url('account_signup') }}">{{ _("Sign Up") }}</a></li>
+                    <li class="{% block nav_login %}{% endblock %}"><a id="log-in-link" href="{{ url('account_login') }}">{{ _("Log In") }}</a></li>
                 {% endif %}
             </ul>
         </div><!--/.nav-collapse -->

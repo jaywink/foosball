@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% block nav_profile %}active{% endblock %}
+
 {% load crispy_forms_tags %}
 
 {% block title %}{{ user.username }}{% endblock %}
