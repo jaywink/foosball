@@ -5,6 +5,8 @@
 
 Office foosball results! Made with Python 3.5.
 
+Logo made with the awesome [Hipster logo generator](https://www.hipsterlogogenerator.com/).
+
 LICENSE: MIT
 
 ## Settings
