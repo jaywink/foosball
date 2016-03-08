@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% block nav_profile %}active{% endblock %}
+
 {% load static %}
 
 {% block title %}User: {{ object.username }}{% endblock %}
@@ -23,13 +26,13 @@
   <div class="col-sm-12 ">
     <a class="btn btn-primary" href="{% url 'users:update' %}">My Info</a>
     <a class="btn btn-primary" href="{% url 'account_email' %}">E-Mail</a>
+    <a class="btn btn-primary" href="{% url 'account_change_password' %}">Password</a>
     <!-- Your Stuff: Custom user template urls -->
   </div>
 
 </div>
 <!-- End Action buttons -->
 {% endif %}
-
 
 </div>
 {% endblock content %}

@@ -1,0 +1,33 @@
+// This file contains custom styling rules for the Foosball project.
+
+//=== Inverted navbar
+// Reset inverted navbar basics
+@navbar-inverse-color: darken(white, 3%);
+@navbar-inverse-bg: #2e7150;
+@navbar-inverse-border: darken(@navbar-inverse-bg, 10%);
+
+// Inverted navbar links
+@navbar-inverse-link-color: @navbar-inverse-color;
+@navbar-inverse-link-hover-bg: darken(@navbar-inverse-bg, 5%);
+
+@blue-team-color: #4868ff;
+@red-team-color: #ff1512;
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+
+.navbar-brand {
+  font-size: 2em;
+  font-family: "Lobster", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.red-team {
+  color: @red-team-color;
+
+}
+
+.blue-team {
+  color: @blue-team-color;
+}

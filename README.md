@@ -1,8 +1,9 @@
 # Foosball
 
-![logo](/logo.png?raw=true "Project logo")
+![logo](/foosball/static/images/logo.png?raw=true "Project logo")
 
-Office foosball results!
+
+Office foosball results! Made with Python 3.5.
 
 LICENSE: MIT
 
@@ -11,6 +12,12 @@ LICENSE: MIT
 Moved to [settings](http://cookiecutter-django.readthedocs.org/en/latest/settings.html).
 
 ## Basic Commands
+
+### Setting Up Your Development environment
+
+* Create a virtualenv using Python 3.5.x. 
+* Compile all required static resources
+  `npm run build`
 
 
 ### Setting Up Your Users
