@@ -16,6 +16,11 @@ class MultiPlayerWidget(ModelSelect2MultipleWidget):
         'email__icontains',
     ]
 
+    def build_attrs(self, extra_attrs=None, **kwargs):
+        attrs = super().build_attrs(extra_attrs=extra_attrs, **kwargs)
+        attrs['data-maximum-selection-length'] = 2
+        return attrs
+
     def label_from_instance(self, obj):
         return " - ".join(filter(None, [obj.username, obj.name]))
 
