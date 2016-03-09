@@ -1,5 +1,6 @@
 [run]
+branch = true
 include = foosball/*
-omit = *migrations*, *tests*
-plugins =
-    django_coverage_plugin
+omit =
+    migrations/*
+    tests/*
