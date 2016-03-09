@@ -30,7 +30,8 @@ class TeamModelForm(forms.ModelForm):
         model = Team
         fields = ('score', 'players')
         widgets = {
-            'players': MultiPlayerWidget
+            'players': MultiPlayerWidget,
+            'score': forms.Select(choices=((i, i) for i in range(11)))
         }
 
 
