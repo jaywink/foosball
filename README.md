@@ -1,8 +1,9 @@
-[![Stories in Ready](https://badge.waffle.io/andersinno/foosball.png?label=ready&title=Ready)](https://waffle.io/andersinno/foosball)
 # Foosball
 
-![logo](/foosball/static/images/logo.png?raw=true "Project logo")
+[![Build Status](https://travis-ci.org/andersinno/foosball.svg?branch=master)](https://travis-ci.org/andersinno/foosball)
+[![Stories in Ready](https://badge.waffle.io/andersinno/foosball.png?label=ready&title=Ready)](https://waffle.io/andersinno/foosball)
 
+![logo](/foosball/static/images/logo.png?raw=true "Project logo")
 
 Office foosball results! Made with Python 3.5.
 
