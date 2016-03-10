@@ -31,7 +31,7 @@ class TeamModelForm(forms.ModelForm):
 class GameModelForm(forms.ModelForm):
     class Meta:
         model = Game
-        fields = ('played_at',)
+        fields = ('played_at', 'table')
 
 
 class GameForm(SuperForm):
