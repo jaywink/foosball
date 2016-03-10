@@ -8,6 +8,14 @@ from model_utils.models import TimeStampedModel
 from foosball.users.models import User
 
 
+class Table(models.Model):
+    name = models.CharField(unique=True, max_length=255, verbose_name=_("name"))
+    description = models.TextField(blank=True, verbose_name=_("description"))
+
+    def __str__(self):
+        return self.name
+
+
 class Game(TimeStampedModel):
     created_by = models.ForeignKey(
         User, related_name="games_created", editable=False, null=True, verbose_name=_("created by")
@@ -22,6 +30,8 @@ class Game(TimeStampedModel):
         help_text=_("Time when the game was played")
     )
 
+    table = models.ForeignKey(Table, blank=True, null=True, related_name="games", verbose_name=_("table"))
+
     class Meta:
         ordering = ['-played_at']
 
@@ -30,7 +40,6 @@ class Game(TimeStampedModel):
 
 
 class Team(models.Model):
-
     UNKNOWN = 0
     RED = 1
     BLUE = 2

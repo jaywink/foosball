@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from django.utils.translation import ugettext as _
 
-from .models import Game, Team
+from .models import Game, Team, Table
 
 
 class TeamForm(forms.ModelForm):
@@ -47,7 +47,8 @@ class TeamInline(admin.TabularInline):
 
 @admin.register(Game)
 class GameAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'played_at', 'created_by', 'modified_by', 'created', 'modified')
+    list_display = ('__str__', 'played_at', 'table', 'created_by', 'modified_by', 'created', 'modified')
+    list_filter = ('table',)
     inlines = (TeamInline,)
 
     def save_model(self, request, obj, form, change):
@@ -55,3 +56,9 @@ class GameAdmin(admin.ModelAdmin):
             obj.created_by = request.user
         obj.modified_by = request.user
         obj.save()
+
+
+@admin.register(Table)
+class TableAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+    search_fields = ('name', 'description')
