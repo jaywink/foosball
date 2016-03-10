@@ -1,8 +1,9 @@
 from django import forms
 from django.contrib import admin
-from django.utils.translation import ugettext as _
 
 from .models import Game, Team, Table
+
+from .utils import clean_team_forms
 
 
 class TeamForm(forms.ModelForm):
@@ -16,16 +17,7 @@ class TeamForm(forms.ModelForm):
 
 class TeamInlineFormSet(forms.models.BaseInlineFormSet):
     def clean(self):
-        teams = []
-        for form in self.forms:
-            players = form.cleaned_data.get('players')
-            if not players:
-                continue  # 'This field is required' error is shown here anyway
-            if players.count() > 2:
-                form.add_error('players', _('Maximum number of players is two.'))
-            teams.append(players.all())
-        if len(teams) == 2 and not set(teams[0]).isdisjoint(teams[1]):
-            self.forms[0].add_error('players', _('Teams contain same players.'))
+        clean_team_forms(self.forms[0], self.forms[1])
 
 
 class TeamInline(admin.TabularInline):
