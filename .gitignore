@@ -61,3 +61,5 @@ foosball.sqlite
 
 # Bower
 bower_components/
+
+staticfiles/
