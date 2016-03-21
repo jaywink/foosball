@@ -36,6 +36,8 @@ SESSION_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = True
 SECURE_SSL_REDIRECT = env.bool("DJANGO_SECURE_SSL_REDIRECT", default=True)
 
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = env.str("DJANGO_ACCOUNT_DEFAULT_HTTP_PROTOCOL", default="https")
+
 # SITE CONFIGURATION
 # ------------------------------------------------------------------------------
 # Hosts/domain names that are valid for this site
