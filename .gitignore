@@ -52,6 +52,7 @@ node_modules/
 
 # virtual environments
 .env
+venv/
 
 # User-uploaded media
 foosball/media/
