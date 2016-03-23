@@ -17,7 +17,7 @@ django-braces==1.8.1
 django-crispy-forms==1.6.0
 django-floppyforms==1.6.1
 django-superform==0.3.1
-Django-Select2==5.8.2
+Django-Select2==5.8.4
 
 # Models
 django-model-utils==2.4
@@ -27,7 +27,7 @@ Pillow==3.1.1
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.24.1
+django-allauth==0.25.2
 
 # Python-PostgreSQL Database Adapter
 psycopg2==2.6.1
@@ -37,7 +37,7 @@ unicode-slugify==0.1.3
 django-autoslug==1.9.3
 
 # Time zones support
-pytz==2015.7
+pytz==2016.2
 
 # Redis support
 django-redis==4.3.0
