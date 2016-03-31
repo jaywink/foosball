@@ -1,7 +1,6 @@
-import datetime
-
 from django.core.validators import MaxValueValidator
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import ugettext as _
 from model_utils.models import TimeStampedModel
 
@@ -25,7 +24,7 @@ class Game(TimeStampedModel):
     )
 
     played_at = models.DateTimeField(
-        default=datetime.datetime.now,
+        default=timezone.now,
         verbose_name=_("played at"),
         help_text=_("Time when the game was played")
     )
