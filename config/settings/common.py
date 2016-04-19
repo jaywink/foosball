@@ -18,6 +18,11 @@ from django_jinja.builtins import DEFAULT_EXTENSIONS
 ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
 APPS_DIR = ROOT_DIR.path('foosball')
 
+# Include locales from the main foosball folder
+LOCALE_PATHS = [
+    os.path.join(str(APPS_DIR), "locale")
+]
+
 env = environ.Env()
 # If the project root contains a .env file, read it
 if os.path.isfile(str(ROOT_DIR + '.env')):
@@ -66,6 +71,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # ------------------------------------------------------------------------------
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
