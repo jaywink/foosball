@@ -47,12 +47,11 @@ To run the tests, check your test coverage, and generate an HTML coverage report
     $ py.test
 
 
-### Live reloading and Sass CSS compilation
+### Automatic Less CSS compilation
 
-Moved to [Live reloading and SASS compilation](http://cookiecutter-django.readthedocs.org/en/latest/live-reloading-and-sass-compilation.html).
-
-
-It's time to write the code!!!
+```
+npm run watch
+```
 
 ## Deployment
 
