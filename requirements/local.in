@@ -1,0 +1,23 @@
+# Local development dependencies go here
+-r base.in
+coverage
+django_coverage_plugin
+Sphinx
+django-extensions
+Werkzeug
+django-test-plus
+factory_boy
+
+django-debug-toolbar
+
+# improved REPL
+ipdb
+
+# pytest!
+pytest
+pytest-django
+pytest-sugar
+pytest-cov
+pytest-factoryboy
+
+flake8

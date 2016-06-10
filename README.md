@@ -20,8 +20,12 @@ Moved to [settings](http://cookiecutter-django.readthedocs.org/en/latest/setting
 ### Setting Up Your Development environment
 
 * Create a virtualenv using Python 3.5.x. 
+* Install local requirements
+  `pip install -r requirements/local.txt`
 * Compile all required static resources
   `npm run build`
+
+You can also use `pip-tools` for managing and installing requirements. `pip-sync requirements/local.txt`
 
 
 ### Setting Up Your Users
