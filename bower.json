@@ -23,6 +23,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "font-awesome": "^4.5.0",
-    "fontkit-lobster": "*"
+    "fontkit-lobster": "*",
+    "Chart.js": "^2.1.6"
   }
 }

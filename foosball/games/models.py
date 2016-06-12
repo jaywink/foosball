@@ -1,9 +1,12 @@
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 from model_utils.models import TimeStampedModel
 
+from foosball.games.utils import random_colour
 from foosball.users.models import User
 
 
@@ -62,3 +65,62 @@ class Team(models.Model):
             self.score,
             ", ".join(map(str, self.players.all()))
         )
+
+
+class Player(models.Model):
+    user = models.OneToOneField(User)
+    singles_wins = models.PositiveIntegerField(
+        verbose_name=_("wins - singles"),
+        help_text=_("Wins in a single player team"),
+        default=0
+    )
+    singles_win_percentage = models.DecimalField(
+        verbose_name=_("win percentage - singles"),
+        help_text=_("Win percentage for single player team games"),
+        default=0,
+        max_digits=5, decimal_places=2,
+        validators=[MinValueValidator(limit_value=0), MaxValueValidator(limit_value=100)]
+    )
+    doubles_wins = models.PositiveIntegerField(
+        verbose_name=_("wins - doubles"),
+        help_text=_("Wins in a two player team"),
+        default=0
+    )
+    doubles_win_percentage = models.DecimalField(
+        verbose_name=_("win percentage - doubles"),
+        help_text=_("Win percentage in two player team games"),
+        default=0,
+        max_digits=5, decimal_places=2,
+        validators=[MinValueValidator(limit_value=0), MaxValueValidator(limit_value=100)]
+    )
+    total_played = models.PositiveIntegerField(
+        verbose_name=_("total played"),
+        help_text=_("Total games played in"),
+        default=0
+    )
+    singles_played = models.PositiveIntegerField(
+        verbose_name=_("singles played"),
+        help_text=_("Total games played as a single player team"),
+        default=0
+    )
+    doubles_played = models.PositiveIntegerField(
+        verbose_name=_("doubles played"),
+        help_text=_("Total games played in a two player team"),
+        default=0
+    )
+    colour = models.CharField(
+        verbose_name=_("colour code"),
+        help_text=_("Player colour as a hex colour code"),
+        max_length=7, null=True
+    )
+
+    def __str__(self):
+        return "Player %s" % self.user.name if self.user.name else self.user.username
+
+    def save(self, *args, **kwargs):
+        """
+        Init some data for the player.
+        """
+        if not self.pk or not self.colour:
+            self.colour = random_colour()
+        return super(Player, self).save(*args, **kwargs)
