@@ -51,8 +51,6 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.facebook',
     'rest_framework',  # REST API
     'django_superform',
     'django_select2',
