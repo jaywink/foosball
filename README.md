@@ -20,8 +20,12 @@ Moved to [settings](http://cookiecutter-django.readthedocs.org/en/latest/setting
 ### Setting Up Your Development environment
 
 * Create a virtualenv using Python 3.5.x. 
+* Install local requirements
+  `pip install -r requirements/local.txt`
 * Compile all required static resources
   `npm run build`
+
+You can also use `pip-tools` for managing and installing requirements. `pip-sync requirements/local.txt`
 
 
 ### Setting Up Your Users
@@ -47,12 +51,11 @@ To run the tests, check your test coverage, and generate an HTML coverage report
     $ py.test
 
 
-### Live reloading and Sass CSS compilation
+### Automatic Less CSS compilation
 
-Moved to [Live reloading and SASS compilation](http://cookiecutter-django.readthedocs.org/en/latest/live-reloading-and-sass-compilation.html).
-
-
-It's time to write the code!!!
+```
+npm run watch
+```
 
 ## Deployment
 

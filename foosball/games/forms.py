@@ -1,10 +1,11 @@
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 from django_select2.forms import ModelSelect2MultipleWidget
 from django_superform import ModelFormField, SuperForm
 
+from foosball.users.models import User
 from .models import Team, Game
 from .utils import clean_team_forms
-from foosball.users.models import User
 
 
 class MultiPlayerWidget(ModelSelect2MultipleWidget):
@@ -32,6 +33,11 @@ class TeamModelForm(forms.ModelForm):
         widgets = {
             'players': MultiPlayerWidget,
             'score': forms.Select(choices=((i, i) for i in range(11)))
+        }
+
+        labels = {
+            "score": _("Score"),
+            "players": _("Players")
         }
 
 

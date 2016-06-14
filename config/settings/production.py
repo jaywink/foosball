@@ -8,6 +8,15 @@ from django.utils import six
 
 from .common import *  # noqa
 
+# Enable social integration plugins
+SOCIAL_ACCOUNTS = (
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
+
+)
+INSTALLED_APPS += SOCIAL_ACCOUNTS
+
+
 # SECRET CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key

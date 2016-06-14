@@ -11,7 +11,7 @@
 
             <ul>
                 {% for game in game_list %}
-                    <li><a href="{{ url("games:detail", pk=game.pk) }}">{{ game.played_at|date("j.n.Y G.i") }}</a>:
+                    <li><a href="{{ url("games:detail", pk=game.pk) }}">{{ game.played_at|localtime|date("j.n.Y G.i") }}</a>:
                         {% for team in game.teams.all() %}
                             {{ ' - ' if not loop.first else '' }}
                             {{ team }}
