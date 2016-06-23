@@ -1,10 +1,15 @@
+import inspect
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse_lazy
 from django.db import transaction
+from django.http.response import HttpResponseBadRequest, JsonResponse
 from django.shortcuts import redirect
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic import ListView, DetailView, FormView, View
 
+from foosball.games import stats
 from foosball.games.forms import GameForm
+from foosball.games.stats import update_player_stats
 from .models import Game, Team
 
 
@@ -42,4 +47,24 @@ class GameCreateView(LoginRequiredMixin, FormView):
         team.side = side
         team.save()
         form.save_m2m()
+        update_player_stats(team)
         return team
+
+
+class StatsView(LoginRequiredMixin, View):
+    """
+    Given a `statistic` parameter, calls the stats function and returns the JSON configuration for Charts.js.
+    """
+    def get(self, request, *args, **kwargs):
+        """Using given `statistic`, return the result JSON."""
+        statistic = request.GET.get("statistic")
+        if not statistic:
+            return HttpResponseBadRequest()
+
+        # Call the stats function with request.GET parameters
+        stats_func = getattr(stats, "stats_%s" % statistic, None)
+        if stats_func and inspect.isfunction(stats_func):
+            result = stats_func(request.GET)
+            return JsonResponse(result)
+
+        return HttpResponseBadRequest()

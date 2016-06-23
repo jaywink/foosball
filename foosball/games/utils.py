@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import random
+
 from django.utils.translation import ugettext as _
 
 
@@ -32,3 +34,12 @@ def clean_team_forms(team_form_1, team_form_2):
         valid = False
 
     return valid
+
+
+def random_colour():
+    """Generate random colour.
+
+    Thanks: http://stackoverflow.com/a/14019260/1489738
+    """
+    r = lambda: random.randint(0, 255)
+    return '#%02X%02X%02X' % (r(), r(), r())

@@ -7,7 +7,7 @@ gulp.task("css:site", require("unigulp/css")({
     name: "css:site",
     src: "foosball/static_src/less/style.less",
     dest: "foosball/static/css/foosball.css",
-    production,
+    production
 }));
 
 // JS
@@ -16,10 +16,11 @@ gulp.task("js:site", require("unigulp/js")({
     src: [
         "bower_components/jquery/dist/jquery.js",
         "bower_components/bootstrap/dist/js/bootstrap.js",
-        "foosball/static_src/js/foosball.js",
+        "bower_components/Chart.js/dist/Chart.min.js",
+        "foosball/games/static_src/js/stats.js"
     ],
     dest: "foosball/static/js/foosball.js",
-    production,
+    production
 }));
 
 // FONTS

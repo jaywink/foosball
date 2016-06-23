@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md 12">
+        <div class="col-md-6">
             <h1>{{ _("Games") }}</h1>
             <a class="btn btn-primary" href="{{ url("games:new") }}"><i class="fa fa-plus"></i> {{ _("Result input") }}</a></p>
 
@@ -23,6 +23,16 @@
                 {% endfor %}
             </ul>
             {{ macros.bootstrap_paginator(page_obj) }}
+        </div>
+        <div class="col-md-6">
+            <h2>{{ _("Red or Blue") }}</h2>
+            <canvas id="red_or_blue"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>{{ _("Players") }}</h2>
+            <canvas id="players-stats"></canvas>
         </div>
     </div>
 {% endblock %}

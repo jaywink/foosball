@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^$', views.GameListView.as_view(), name="index"),
     url(r'^detail/(?P<pk>\d+)/$', views.GameDetailView.as_view(), name="detail"),
     url(r'^new/$', views.GameCreateView.as_view(), name="new"),
+    url(r'^stats/$', views.StatsView.as_view(), name="stats"),
 ]

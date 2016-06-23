@@ -18,9 +18,9 @@ class TeamFactory(factory.django.DjangoModelFactory):
             return
 
         if extracted:
-            # A list of groups were passed in, use them
-            for group in extracted:
-                self.groups.add(group)
+            # A list of players was passed in, use them
+            for player in extracted:
+                self.players.add(player)
             return
 
         self.players.add(UserFactory())
