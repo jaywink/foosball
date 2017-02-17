@@ -13,12 +13,9 @@ zlib1g-dev
 libpq-dev
 
 ##Pillow dependencies
-libtiff4-dev
 libjpeg8-dev
 libfreetype6-dev
-liblcms1-dev
 libwebp-dev
-
 
 ##django-extensions
 graphviz-dev
