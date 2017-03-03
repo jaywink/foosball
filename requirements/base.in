@@ -47,4 +47,8 @@ redis
 # REST API
 djangorestframework
 
+# Dev tools
 pip-tools
+
+# React
+django-webpack-loader

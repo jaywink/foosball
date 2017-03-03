@@ -10,8 +10,9 @@
     "url": "https://github.com/andersinno/foosball/issues"
   },
   "scripts": {
-    "build": "npm i && bower install && gulp --production",
-    "watch": "npm i && bower install && gulp watch"
+    "build": "npm i && bower install && gulp --production && ./node_modules/.bin/webpack --config webpack.config.js",
+    "watch": "npm i && bower install && gulp watch",
+    "pack": "./node_modules/.bin/webpack --config webpack.config.js"
   },
   "dependencies": {
     "babel": "^6.5.2",
@@ -21,7 +22,14 @@
     "gulp": "^3.9.1",
     "unigulp": "github:andersinno/unigulp#086c3c4844ec4979ddf72a5db4d96fa28256c9cd"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-loader": "^6.3.2",
+    "babel-preset-react": "^6.23.0",
+    "react": "^15.4.2",
+    "webpack": "^2.2.1",
+    "webpack-bundle-tracker": "^0.2.0"
+  },
   "engines": {
     "node": ">=0.8.0"
   }

@@ -46,6 +46,9 @@
                 <li class="{% block nav_games %}{% endblock %}">
                     <a href="{% url 'games:index' %}"><i class="fa fa-futbol-o"></i> {{ _("Games") }}</a>
                 </li>
+                <li class="{% block nav_gameapp %}{% endblock %}">
+                    <a href="{% url 'gameapp' %}"><i class="fa fa-play"></i> {{ _("Play!") }}</a>
+                </li>
                 <li class="{% block nav_about %}{% endblock %}">
                     <a href="{% url 'about' %}">{{ _("About") }}</a>
                 </li>

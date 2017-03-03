@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load render_bundle from webpack_loader %}
+
+{% block nav_gameapp %}active{% endblock %}
+
+{% block content %}
+    <div id="app"></div>
+    {% render_bundle 'main' %}
+{% endblock %}

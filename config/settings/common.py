@@ -54,12 +54,14 @@ THIRD_PARTY_APPS = (
     'rest_framework',  # REST API
     'django_superform',
     'django_select2',
+    'webpack_loader',
 )
 
 # Apps specific for this project go here.
 LOCAL_APPS = (
     'foosball.users',
     'foosball.games',
+    'foosball.gameapp',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -207,6 +209,7 @@ STATIC_URL = '/static/'
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
     str(APPS_DIR.path('static')),
+    str(APPS_DIR.path('gameapp', 'ui')),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
@@ -264,4 +267,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissions'
     ]
+}
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(str(ROOT_DIR), 'webpack-stats.json'),
+    }
 }

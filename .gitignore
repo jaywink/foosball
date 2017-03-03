@@ -64,3 +64,7 @@ foosball.sqlite
 bower_components/
 
 staticfiles/
+
+# Gameapp react bundles
+/foosball/gameapp/ui/bundles/main-*.js
+/webpack-stats.json
